@@ -11,7 +11,11 @@ var $header = $(".main-header"),
     menuHeight = $menu.outerHeight();
 
 // fix for mobile, when the heading wraps around it changes the header height
-$(window).resize(function() { 
+$(window).resize(function() {
+  headerHeight = $header.outerHeight();
+  headingHeight = $(".main-header__heading").outerHeight();
+  menuHeight = $menu.outerHeight();
+
   $(".main-content").css("padding-top", headerHeight + 70 + "px");
   
 });
