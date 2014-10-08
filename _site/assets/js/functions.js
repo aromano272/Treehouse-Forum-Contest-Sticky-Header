@@ -26,10 +26,10 @@ var yScroll = function() {
 
   if(yPosLive < headingHeight) {
     $header.removeClass("main-header--hidden");
-    $(".posts").css("padding-top", 0);
+    $header.css("top", -yPosLive + "px")
   } else {
     $header.addClass("main-header--hidden");
-    $(".posts").css("padding-top", headerHeight);
+    $header.css("top", -headingHeight + "px");
   }
 
 

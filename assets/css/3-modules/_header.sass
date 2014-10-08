@@ -2,6 +2,7 @@
   box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.3)
   background: $header-color
   width: 100%
+  +position(fixed, 0 null null 0)
 
 .main-header__heading
   color: slategrey
@@ -22,17 +23,18 @@
 
 .main-nav__item
   display: inline-block
-  padding: 10px
   text-align: center
+  padding: 10px
 
   a
+    padding: 10px
     font:
       family: "Lato", sans-serif
       weight: 700
       size: 1.2em
   
 .main-header__heading--hidden
-  +position(absolute, 0.45em null null 0)
+  +position(absolute, null null 0.60rem 0)
   +transition(opacity 0 ease)
   opacity: 0
   margin: 0
@@ -43,11 +45,14 @@
     size: 1.5em
   color: #566972
 
+  @media (max-width: 1300px)
+    display: none
+
 .main-header--hidden
-  +position(fixed, 0 null null 0)
+  // +position(fixed, 0 null null 0)
   
   .main-header__heading
-    display: none
+    // display: none
 
   .main-header__heading--hidden
     +transition(opacity 0.5s ease 1s)
