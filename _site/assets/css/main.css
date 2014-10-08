@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900|Open+Sans:400,300);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -143,6 +143,11 @@ table {
 td, th {
   padding: 0; }
 
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6 {
   color: #b0bec5;
@@ -263,10 +268,32 @@ body {
     font-weight: 700;
     font-size: 1.2em; }
 
+.main-header__heading--hidden {
+  position: absolute;
+  top: 0.45em;
+  left: 0;
+  -webkit-transition: opacity 0 ease;
+  -moz-transition: opacity 0 ease;
+  transition: opacity 0 ease;
+  opacity: 0;
+  margin: 0;
+  padding: 0 0 0 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 1.5em;
+  color: #566972; }
+
 .main-header--hidden {
   position: fixed;
   top: 0;
   left: 0; }
+  .main-header--hidden .main-header__heading {
+    display: none; }
+  .main-header--hidden .main-header__heading--hidden {
+    -webkit-transition: opacity 0.5s ease 1s;
+    -moz-transition: opacity 0.5s ease 1s;
+    transition: opacity 0.5s ease 1s;
+    opacity: 0.1; }
 
 .main-content {
   padding: 70px 20px; }

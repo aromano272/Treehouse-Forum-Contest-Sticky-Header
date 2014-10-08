@@ -30,11 +30,29 @@
       family: "Lato", sans-serif
       weight: 700
       size: 1.2em
-    
+  
+.main-header__heading--hidden
+  +position(absolute, 0.45em null null 0)
+  +transition(opacity 0 ease)
+  opacity: 0
+  margin: 0
+  padding: 0 0 0 20px
+  font:
+    family: "Lato", sans-serif
+    weight: 900
+    size: 1.5em
+  color: #566972
+
 .main-header--hidden
   +position(fixed, 0 null null 0)
   
   .main-header__heading
+    display: none
+
+  .main-header__heading--hidden
+    +transition(opacity 0.5s ease 1s)
+    opacity: 0.1
+
 
 
 
