@@ -5,7 +5,8 @@ var $header = $(".main-header"),
     $menu = $(".main-nav__wrapper"), 
     yPosDelay, 
     yPosLive = window.pageYOffset, 
-    yPosDiffHolder, 
+    yPosDiffHolderUp = 0,
+    yPosDiffHolderDown = 0, 
     headerHeight = $header.outerHeight(),
     headingHeight = $(".main-header__heading").outerHeight(),
     menuHeight = $menu.outerHeight();
@@ -20,7 +21,6 @@ $(window).resize(function() {
   menuHeight = $menu.outerHeight();
 
   $(".main-content").css("padding-top", headerHeight + 70 + "px");
-  
 });
 
 
@@ -28,40 +28,60 @@ $(window).resize(function() {
 var yScroll = function() {
   yPosLive = window.pageYOffset;
   
-  if(yPosDelay > yPosLive) {
-    // going up
-    yPosDiffHolder += yPosDelay - yPosLive;
-  } else if(yPosDelay < yPosLive) {
-    // going down
-    yPosDiffHolder = 0;
-  }
+
   
 
-  if(yPosLive < headingHeight) {
+  if(yPosLive <= headingHeight) {
     $header.removeClass("main-header--hidden");
-    $header.css("top", -yPosLive + "px")
-  } else {
+    $header.css("top", -yPosLive + "px");
+  } else if(yPosLive > headingHeight && yPosLive < headingHeight + 200) {
     $header.addClass("main-header--hidden");
     $header.css("top", -headingHeight + "px");
-  }
+  
+    // if far enough from the top
+  } else if(yPosLive > headingHeight + 200) {
+
+      if(yPosDelay > yPosLive) {
+        // going up
+        yPosDiffHolderUp += yPosDelay - yPosLive;
+        yPosDiffHolderDown = 0;
+      } else if(yPosDelay < yPosLive) {
+        // going down
+        yPosDiffHolderUp = 0;
+        yPosDiffHolderDown += yPosLive - yPosDelay;
+      };
+
+      if(yPosDiffHolderDown > 150) {
+        // console.log("first if trigger" + " yPosDelay: " + yPosDelay);
+        console.log("first if trigger" + " yPosDiffHolderUp: " + yPosDiffHolderUp + " yPosDiffHolderDown: " + yPosDiffHolderDown);
+        
+        // hide nav
+        $header.css("top", -(yPosDiffHolderDown - 150) - headingHeight + "px");
 
 
-  // if(yPosDiffHolder > 120 || window.pageYOffset < 100) {
-  //   console.log("first if trigger" + " yPosDelay: " + yPosDelay);
-  //   // show header
-  //   $header.removeClass("main-header--hidden");
+      } else if(yPosDiffHolderUp > 150) {
+        // console.log("second if trigger" + " yPosDelay: " + yPosDelay);
+        console.log("second if trigger" + " yPosDiffHolderUp: " + yPosDiffHolderUp + " yPosDiffHolderDown: " + yPosDiffHolderDown);
+        
+        // show nav
+        $header.css("top", (yPosDiffHolderUp - 150) -headerHeight + "px");
+        if(((yPosDiffHolderUp) - headerHeight) > menuHeight) {
+          $header.css("top", -headingHeight + "px");
+        }
 
-  // } else if(yPosDelay < 150) {
-  //   console.log("second if trigger" + " yPosDelay: " + yPosDelay);
-  //   // hide header
-  //   $header.addClass("main-header--hidden");
+      } else {
+        // console.log("else trigger" + " yPosDelay: " + yPosDelay);
+        console.log("else trigger" + " yPosDiffHolderUp: " + yPosDiffHolderUp + " yPosDiffHolderDown: " + yPosDiffHolderDown);
+        
+        // hide nav
 
-  // } else {
-  //   console.log("else trigger" + " yPosDelay: " + yPosDelay);
-  //   // hide header
-  //   $header.addClass("main-header--hidden");
+      }
+    } else {
+      // show nav
+    }
 
-  // } 
+  
+
   yPosDelay = window.pageYOffset;
 }
 
