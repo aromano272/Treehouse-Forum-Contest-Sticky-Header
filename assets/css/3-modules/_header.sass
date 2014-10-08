@@ -1,6 +1,7 @@
 .main-header
   box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.3)
   background: $header-color
+  width: 100%
 
 .main-header__heading
   color: slategrey
@@ -30,6 +31,11 @@
       weight: 700
       size: 1.2em
     
+.main-header--hidden
+  +position(fixed, 0 null null 0)
+  
+  .main-header__heading
+
 
 
 

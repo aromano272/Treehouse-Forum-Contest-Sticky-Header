@@ -224,7 +224,8 @@ body {
 
 .main-header {
   box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.3);
-  background: #eee; }
+  background: #eee;
+  width: 100%; }
 
 .main-header__heading {
   color: slategrey;
@@ -261,6 +262,11 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 700;
     font-size: 1.2em; }
+
+.main-header--hidden {
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 .main-content {
   padding: 70px 20px; }
