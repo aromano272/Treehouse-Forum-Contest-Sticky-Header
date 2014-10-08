@@ -13,7 +13,7 @@ var $header = $(".main-header"),
 // fix for mobile, when the heading wraps around it changes the header height
 $(window).resize(function() { 
   $(".main-content").css("padding-top", headerHeight + 70 + "px");
-  alert('fired');
+  
 });
 
 
