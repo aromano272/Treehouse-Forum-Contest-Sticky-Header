@@ -1,0 +1,51 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">  
+  <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+  <header class="main-header">
+    <h3 class="main-header__heading">Treehouse Forum Contest</h3>
+
+    <nav class="main-nav__wrapper">
+      <ul class="main-nav">
+        <li class="main-nav__item"><a href="">A Button</a></li>
+        <li class="main-nav__item"><a href="">Another Button</a></li>
+        <li class="main-nav__item"><a href="">More Buttons!?</a></li>
+        <li class="main-nav__item"><a href="">Hell Yea Buttons!</a></li>
+        <li class="main-nav__item"><a href="">Ok Thats Enough</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="main-content">
+    
+    <ul class="posts">
+      {% for post in site.posts %}
+      <li class="posts__post">
+        <span class="posts__post--title">{{ post.title }}</span>
+        <span class="posts__post--date">{{ post.date }}</span>
+        <span class="posts__post--content">{{ post.content }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </section>
+
+  <footer class="footer">
+    <h2 class="footer__title">yo! i'm zeh footer</h2>
+  </footer>
+
+
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/functions.js" type="text/javascript"></script>
+</body>
+</html>
