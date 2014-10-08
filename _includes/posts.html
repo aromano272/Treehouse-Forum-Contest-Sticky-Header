@@ -1,0 +1,9 @@
+<ul class="posts">
+  {% for post in site.posts %}
+  <li class="posts__post">
+    <span class="posts__post--title">{{ post.title }}</span>
+    <span class="posts__post--date">{{ post.date | date: "%-d %B %Y" }}</span>
+    <span class="posts__post--content">{{ post.content }}</span>
+  </li>
+  {% endfor %}
+</ul>
