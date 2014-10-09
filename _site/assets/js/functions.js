@@ -65,7 +65,7 @@ var yScroll = function() {
         
         // show nav
         $header.css("top", (yPosDiffHolderUp - 150) -headerHeight + "px");
-        if(((yPosDiffHolderUp) - headerHeight) > menuHeight) {
+        if(parseInt($header.css("top")) > -(headerHeight - menuHeight)) {
           $header.css("top", -headingHeight + "px");
         }
 
