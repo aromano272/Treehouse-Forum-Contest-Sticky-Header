@@ -1,3 +1,3 @@
-Team Treehouse Forum Contest Submition
+Team Treehouse Forum Contest Submission
 ===================
 
